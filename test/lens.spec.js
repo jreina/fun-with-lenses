@@ -1,9 +1,9 @@
-const { toUpper } = require("ramda");
+const { toUpper, assoc, prop } = require("ramda");
 const { Lens, over, set, view } = require("../index");
 const { expect } = require("chai");
 
 describe("Lens", () => {
-  const lens = Lens("name");
+  const lens = Lens(prop("name"), assoc("name"));
   const person = { name: "Judy" };
 
   describe("#view", () => {
